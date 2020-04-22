@@ -1,0 +1,104 @@
+from IPython.display import clear_output
+
+'''
+CALCULATOR
+'''
+
+'''
+FUNCTIONS
+'''
+# Add numbers
+
+def add(*args):
+    result = 0
+    for num in args:
+        result += num
+    return result
+
+def subtract(*args):
+    result = args[0]
+    for num in args[1::]:
+        result -= num
+    return result 
+
+def multiply(*args):
+    result = 1
+    for num in args:
+        result *= num
+    return result
+
+def divide(*args):
+    result = 1
+    for num in args:
+        result /= num
+    return result
+    
+def exponent(num, power):
+    result = num**power
+    return result
+
+'''
+UI
+'''
+
+# Welcome message
+print('Welcome to Python Calculator by Eric Smith.\nPlease type on two numbers for each operation :)')
+
+playing = True
+use_resultant = 'n'
+
+# What operation do you want to do?
+
+while playing:
+
+    if use_resultant == 'y':
+        
+        operator_choice = input("\nWhat math operation do you want to do?\n\nEnter 'a' or 's' or 'm' or 'd' or 'exp': ")
+
+       # if operator_choice != 'a' or 's' or 'm' or 'd' or 'exp':
+       #     print('\nPlease type in a valid input: ')
+      #      continue
+
+        print("\nEnter new number to use with {}: ".format(resultant))
+        num = int(input())
+        num1, num2 = resultant,num
+
+    else:
+        
+        operator_choice = input("\nWhat math operation do you want to do?\n\nEnter 'a' or 's' or 'm' or 'd' or 'exp': ")
+
+     #   if operator_choice != 'a' or 's' or 'm' or 'd' or 'exp':
+      #      print('\nPlease type in a valid input: ')
+       #     continue
+        
+        print("\nEnter your two numbers: ")
+        nums = [int(input()) for i in range(2)]
+        num1, num2 = nums[0],nums[1]
+        
+    if operator_choice == 'a':    
+        resultant = add(num1,num2)
+        print('The sum of your numbers is: {}'.format(add(num1,num2)))
+
+    elif operator_choice == 's':    
+        print('The difference of your numbers = {}'.format(subtract(num1,num2)))
+
+    elif operator_choice == 'm':    
+        print('The multiplication of your numbers = {}'.format(multiply(num1,num2))) 
+
+    elif operator_choice == 'd':    
+        print('The division of your numbers = {}'.format(divide(num1,num2))) 
+        
+    elif operator_choice == 'exp':    
+        print('{} to the power of {} = {}'.format(num1, num2,exponent(num1,num2)))  
+    
+           
+    play_again = input("\nWant to do more math? Enter 'y' or 'n' ")
+    
+    if play_again == 'y':
+        use_resultant = input("\nDo you want to use this resultant? Enter 'y' or 'n' ")
+        clear_output()
+        continue
+        
+    else:
+        print("\nThanks for using my calculator!")
+        break
