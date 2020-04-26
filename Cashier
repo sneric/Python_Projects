@@ -14,6 +14,9 @@ def change(cost, money):
 
     diff = round(money - cost, 2)
     
+    if diff < 0:
+        print('\nYou did not pay with enough money!')
+    
     while diff - 0.25 >= 0:
         quarters += 1
         diff -= 0.25
