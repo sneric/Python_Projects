@@ -1,0 +1,42 @@
+'''
+Change Return Program - The user enters a cost and then 
+the amount of money given. 
+The program will figure out the change and the number of 
+quarters, dimes, nickels, pennies needed for the change.
+'''
+
+def change(cost, money):
+    
+    quarters = 0
+    dimes = 0
+    nickels = 0
+    pennies = 0
+
+    diff = round(money - cost, 2)
+    
+    while diff - 0.25 >= 0:
+        quarters += 1
+        diff -= 0.25
+        if quarters >= 8:
+            break
+    
+    while diff - 0.1 >= 0:
+        dimes += 1
+        diff -= 0.1
+    
+    while diff - 0.05 >= 0:
+        nickels += 1
+        diff -= 0.05
+    
+    while diff - 0.01 >= 0:
+        pennies += 1
+        diff -= 0.01
+        diff = round(diff,2)             
+                    
+    print('\nYour change is {} quarters, {} dimes, {} nickels, \
+          and {} pennies'.format(quarters, dimes, nickels, pennies))
+ 
+
+cost = float(input("Enter the cost of an item: "))
+money = float(input("Enter the amount of money given: "))
+change(cost, money)
